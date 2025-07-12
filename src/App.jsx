@@ -387,32 +387,13 @@ const App = () => {
         </div>
       </div>
 
-      {/* 하단 버튼들 */}
+      {/* 하단 버튼*/}
       <div className="space-y-3">
         <button
           onClick={resetTest}
-          className="w-full py-3 bg-gray-600 text-white rounded-xl font-semibold active:scale-95 transition-all duration-200"
-        >
-          🔄 다시 진단하기
-        </button>
-        <button
-          onClick={() => {
-            if (navigator.share) {
-              navigator.share({
-                title: "시간관리 진단 결과",
-                text: `나의 시간관리 진단: ${result.title} (${result.score}점)`,
-                url: window.location.href,
-              });
-            } else {
-              navigator.clipboard.writeText(
-                `나의 시간관리 진단: ${result.title} (${result.score}점) - ${window.location.href}`
-              );
-              alert("결과가 클립보드에 복사되었습니다!");
-            }
-          }}
           className="w-full py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-xl font-semibold active:scale-95 transition-all duration-200"
         >
-          📱 결과 공유하기
+          🔄 다시 진단하기
         </button>
       </div>
     </div>
