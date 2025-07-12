@@ -130,7 +130,7 @@ const App = () => {
 
           return newProgress;
         });
-      }, 20); // 1초 동안 진행
+      }, 20);
 
       return () => clearInterval(interval);
     }
@@ -148,7 +148,7 @@ const App = () => {
         borderColor: "border-green-200",
         gradientColor: "from-green-400 to-emerald-500",
         icon: <Star className="w-16 h-16 text-green-600" />,
-        image: "/src/assets/2.png",
+        image: "/assets/2.png",
         description: "시간관리의 신! 당신은 타고난 리더입니다.",
         message:
           "당신은 리더의 자질이 충분합니다.\n가까운 조장님이나 팸장님께\n바로 지원하세요.",
@@ -163,7 +163,7 @@ const App = () => {
         borderColor: "border-blue-200",
         gradientColor: "from-blue-400 to-cyan-500",
         icon: <Target className="w-16 h-16 text-blue-600" />,
-        image: "/src/assets/4.png",
+        image: "/assets/4.png",
         description: "계획은 완벽! 실행은... 다음 생에?",
         message:
           '"계획은 예술, 실천은 다음 생에!"\n오늘도 형광펜만 열일한 계획핑!',
@@ -178,7 +178,7 @@ const App = () => {
         borderColor: "border-yellow-200",
         gradientColor: "from-yellow-400 to-orange-500",
         icon: <TrendingUp className="w-16 h-16 text-yellow-600" />,
-        image: "/src/assets/3.png",
+        image: "/assets/3.png",
         description: "처음 3일은 완벽했는데...",
         message:
           '"계획은 완벽했지…\n첫 3일 동안은 말이야."\n작심삼일핑, 오늘도 당당하게 실패 중!',
@@ -193,7 +193,7 @@ const App = () => {
         borderColor: "border-red-200",
         gradientColor: "from-red-400 to-pink-500",
         icon: <Sparkles className="w-16 h-16 text-red-600" />,
-        image: "/src/assets/1.png",
+        image: "/assets/1.png",
         description: "일어나자마자 폰, 계획은 내일로...",
         message:
           "일어나자마자 폰 보고,\n공부는 내일로 미루고,\n누웠는데 하루가 끝났다면...?\n축하해요! 당신은 오늘도 노답 마스터✨",
@@ -404,7 +404,6 @@ const App = () => {
                 url: window.location.href,
               });
             } else {
-              // 공유 API가 없으면 클립보드에 복사
               navigator.clipboard.writeText(
                 `나의 시간관리 진단: ${result.title} (${result.score}점) - ${window.location.href}`
               );
