@@ -8,9 +8,11 @@ import {
   Sparkles,
   TrendingUp,
   Shield,
+  BarChart3,
 } from "lucide-react";
 import { db } from "./firebase";
 import { collection, addDoc } from "firebase/firestore";
+import AdminDashboard from "./AdminDashboard";
 
 const App = () => {
   const [checkedItems, setCheckedItems] = useState({});
@@ -18,6 +20,10 @@ const App = () => {
   const [analysisProgress, setAnalysisProgress] = useState(0);
   const [analysisText, setAnalysisText] = useState("");
   const [startTime, setStartTime] = useState(Date.now());
+
+  // URL에서 관리자 모드 확인
+  const isAdminMode =
+    window.location.pathname === "/admin" || window.location.hash === "#admin";
 
   const checklistItems = [
     { id: 1, text: "일어나자마자 스마트폰 30분 이상 봤다" },
@@ -85,7 +91,7 @@ const App = () => {
         // 기기 정보 (익명)
         isMobile: /Mobile|Android|iPhone|iPad/.test(navigator.userAgent),
         screenWidth: window.screen.width,
-        userAgent: navigator.userAgent.split(" ")[0],
+        userAgent: navigator.userAgent.split(" ")[0], // 간단한 브라우저 정보만
       };
 
       // Firebase에 저장
@@ -124,7 +130,7 @@ const App = () => {
 
           return newProgress;
         });
-      }, 30); // 2초 동안 진행
+      }, 30); // 2초 동안 진행 (더 빠르게)
 
       return () => clearInterval(interval);
     }
@@ -215,6 +221,11 @@ const App = () => {
 
   const result = getResult();
 
+  // 관리자 대시보드 표시 (URL 기반)
+  if (isAdminMode) {
+    return <AdminDashboard onBack={() => (window.location.href = "/")} />;
+  }
+
   // 체크리스트 페이지 (모바일 최적화)
   if (currentPage === "checklist") {
     return (
@@ -266,7 +277,7 @@ const App = () => {
     );
   }
 
-  // 분석 중 페이지
+  // 분석 중 페이지 (깔끔한 디자인)
   if (currentPage === "analyzing") {
     return (
       <div className="max-w-md mx-auto p-6 bg-white min-h-screen flex items-center justify-center">
@@ -376,7 +387,7 @@ const App = () => {
 
         {/* 메시지 박스 */}
         <div className="bg-white p-4 rounded-xl shadow-inner">
-          <h3 className="font-bold text-gray-800 mb-2 text-sm">💬 메시지:</h3>
+          <h3 className="font-bold text-gray-800 mb-2 text-sm">당신은</h3>
           <p className="text-sm text-gray-700 leading-relaxed">
             {result.message}
           </p>
