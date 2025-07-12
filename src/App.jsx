@@ -26,7 +26,7 @@ const App = () => {
     window.location.pathname === "/admin" || window.location.hash === "#admin";
 
   const checklistItems = [
-    { id: 1, text: "일어나자마자 스마트폰 30분 이상 봤다" },
+    { id: 1, text: "일어나자마자 핸드폰으로 유튜브나 인스타 봤다" },
     { id: 2, text: '"내일 하자"고 미룬 적이 이번 주에 3번 이상 있다' },
     { id: 3, text: "공부하겠다고 폰 들었다가 유튜브/인스타 본 적 있다" },
     { id: 4, text: '자기 전에 "오늘 뭐 했지?" 하며 허무했던 적 있다' },
@@ -38,7 +38,7 @@ const App = () => {
       id: 9,
       text: '"바쁘다"고 말하지만, 정작 하루가 어떻게 지나갔는지 기억이 없다',
     },
-    { id: 10, text: '"일단 청소부터..." 하며 본작업은 안 한 적 있다' },
+    { id: 10, text: '"일단 청소부터..." 하며 해야할 일들을 안 한 적 있다' },
   ];
 
   const analysisTexts = [
