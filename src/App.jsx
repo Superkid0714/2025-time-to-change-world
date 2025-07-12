@@ -9,12 +9,15 @@ import {
   TrendingUp,
   Shield,
 } from "lucide-react";
+import { db } from "./firebase";
+import { collection, addDoc } from "firebase/firestore";
 
 const App = () => {
   const [checkedItems, setCheckedItems] = useState({});
   const [currentPage, setCurrentPage] = useState("checklist");
   const [analysisProgress, setAnalysisProgress] = useState(0);
   const [analysisText, setAnalysisText] = useState("");
+  const [startTime, setStartTime] = useState(Date.now());
 
   const checklistItems = [
     { id: 1, text: "일어나자마자 스마트폰 30분 이상 봤다" },
@@ -59,6 +62,40 @@ const App = () => {
     setAnalysisText(analysisTexts[0]);
   };
 
+  // 데이터 수집 함수
+  const saveUserData = async (resultData) => {
+    try {
+      const userData = {
+        // 핵심 진단 데이터
+        checkedItems: checkedItems,
+        checkedCount: getCheckedCount(),
+        checkedItemIds: Object.keys(checkedItems).filter(
+          (key) => checkedItems[key]
+        ),
+        resultLevel: resultData.level,
+
+        // 타임스탬프
+        timestamp: new Date().toISOString(),
+        date: new Date().toDateString(),
+        time: new Date().toTimeString().split(" ")[0],
+
+        // 사용 패턴
+        timeSpentSeconds: Math.round((Date.now() - startTime) / 1000),
+
+        // 기기 정보 (익명)
+        isMobile: /Mobile|Android|iPhone|iPad/.test(navigator.userAgent),
+        screenWidth: window.screen.width,
+        userAgent: navigator.userAgent.split(" ")[0],
+      };
+
+      // Firebase에 저장
+      await addDoc(collection(db, "survey-results"), userData);
+      console.log("데이터 저장 성공!", userData);
+    } catch (error) {
+      console.error("데이터 저장 실패:", error);
+    }
+  };
+
   useEffect(() => {
     if (currentPage === "analyzing") {
       const interval = setInterval(() => {
@@ -78,12 +115,16 @@ const App = () => {
             clearInterval(interval);
             setTimeout(() => {
               setCurrentPage("result");
+              // 결과 페이지 표시 후 데이터 수집
+              setTimeout(() => {
+                saveUserData(getResult());
+              }, 500);
             }, 500);
           }
 
           return newProgress;
         });
-      }, 30); // 2초 동안 진행 (더 빠르게)
+      }, 30); // 2초 동안 진행
 
       return () => clearInterval(interval);
     }
@@ -169,6 +210,7 @@ const App = () => {
     setCheckedItems({});
     setCurrentPage("checklist");
     setAnalysisProgress(0);
+    setStartTime(Date.now()); // 시작 시간 리셋
   };
 
   const result = getResult();
@@ -224,7 +266,7 @@ const App = () => {
     );
   }
 
-  // 분석 중 페이지 (깔끔한 디자인)
+  // 분석 중 페이지
   if (currentPage === "analyzing") {
     return (
       <div className="max-w-md mx-auto p-6 bg-white min-h-screen flex items-center justify-center">
