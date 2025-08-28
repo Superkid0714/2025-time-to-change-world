@@ -27,7 +27,7 @@
 - **데이터 새로고침**: 최신 데이터를 Firebase에서 즉시 불러와 반영할 수 있습니다
 
 <img width="2746" height="1348" alt="image" src="https://github.com/user-attachments/assets/6511c1d4-e724-45b2-92fb-4b1139bb6d10" />
-<img width="2746" height="1348" alt="image" src="https://github.com/user-attachments/assets/f1a06b7d-d8c2-44e3-8b65-ba0a724e80a9" />
+<img width="2658" height="332" alt="image" src="https://github.com/user-attachments/assets/ff60de15-5338-49a6-ae09-275a55ec474d" />
 <img width="2674" height="818" alt="image" src="https://github.com/user-attachments/assets/cf01060d-653e-482b-ab47-fa5223d7cfcb" />
 
 
