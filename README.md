@@ -50,6 +50,9 @@
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d57cd030-2860-4abb-bfd4-310b75888ba2" />
 <img width="2691" height="1724" alt="image" src="https://github.com/user-attachments/assets/c0d49f5f-7e36-41df-b920-c5a3d1f017e2" />
 
+👉 [Velog 글 바로가기](https://velog.io/@newkid0714/%EC%8B%9C%EA%B0%84-%EA%B4%80%EB%A6%AC-%EC%B2%B4%ED%81%AC-%EB%A6%AC%EC%8A%A4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0)
+
+
 ## 🚀 시작하기
 
 프로젝트를 로컬 환경에서 실행하려면 다음 단계를 따르세요
