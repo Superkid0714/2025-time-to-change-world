@@ -2,7 +2,8 @@
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/7fea5497-5f97-4904-afc4-393f0668163e" />
 
-해당 프로젝트는 사섬 청년들의 시간 관리 습관을 진단하고, 그 결과를 시각적으로 분석하여 보여주는 웹 애플리케이션입니다 사용자는 간단한 체크리스트를 통해 자신의 시간 관리 유형을 파악하고, 관리자는 수집된 데이터를 기반으로 전반적인 시간 관리 현황을 이해할 수 있습니다
+해당 프로젝트는 사섬 청년들의 시간 관리 습관을 진단하고, 그 결과를 시각적으로 분석하여 보여주는 웹 애플리케이션입니다 
+사용자는 간단한 체크리스트를 통해 자신의 시간 관리 유형을 파악하고, 관리자는 수집된 데이터를 기반으로 전반적인 시간 관리 현황을 이해할 수 있습니다
 
 ## ✨ 주요 기능
 
@@ -47,8 +48,7 @@
 ## 😀 배포 및 사용
 
 <img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/d57cd030-2860-4abb-bfd4-310b75888ba2" />
-![1060_1755442679_5](https://github.com/user-attachments/assets/558b860b-5634-4e1f-ba6d-d0fce229f46c)
-
+<img width="2691" height="1724" alt="image" src="https://github.com/user-attachments/assets/c0d49f5f-7e36-41df-b920-c5a3d1f017e2" />
 
 ## 🚀 시작하기
 
