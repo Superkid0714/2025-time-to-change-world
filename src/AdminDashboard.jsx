@@ -10,8 +10,6 @@ import {
   PieChart,
   Pie,
   Cell,
-  LineChart,
-  Line,
 } from "recharts";
 import { db } from "./firebase";
 import { collection, getDocs } from "firebase/firestore";
@@ -24,7 +22,6 @@ import {
   RefreshCw,
   AlertCircle,
   Calendar,
-  Eye,
 } from "lucide-react";
 
 const AdminDashboard = ({ onBack }) => {

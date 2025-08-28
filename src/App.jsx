@@ -1,15 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  CheckCircle2,
-  Clock,
-  AlertCircle,
-  Star,
-  Target,
-  Sparkles,
-  TrendingUp,
-  Shield,
-  BarChart3,
-} from "lucide-react";
+import { Star, Target, Sparkles, TrendingUp } from "lucide-react";
 import { db } from "./firebase";
 import { collection, addDoc } from "firebase/firestore";
 import AdminDashboard from "./AdminDashboard";
